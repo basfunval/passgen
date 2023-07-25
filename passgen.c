@@ -11,7 +11,7 @@ int main(){
     return -1;
   }
   for(int i = 0; i < len; i++){
-    pass[i] = 33 + (pass[i]%93);
+    pass[i] = 33 + ((pass[i]+128)%93);
   }
   printf("%s\n",pass);
   return 0;
