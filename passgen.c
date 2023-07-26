@@ -17,6 +17,8 @@ int chooseCustomPool(char* pool){
     return 3;
   if(strcmp(pool, "number") == 0)
     return 4;
+  if(strcmp(pool, "symbol") == 0)
+    return 5;
   return -1;
 }
 
@@ -30,7 +32,7 @@ int main(int argc, char **argv){
   while((opt = getopt(argc, argv, "hc:C:l:")) != -1){
     switch(opt){
       case 'h':
-        printf("help menu\n");
+        printf("%s", HELP_TEXT);
         return 0;
       case 'c':
         switch(chooseCustomPool(optarg)){
@@ -39,6 +41,7 @@ int main(int argc, char **argv){
           case 2: strcat(customPool, LETTER); break;
           case 3: strcat(customPool, LETTER); strcat(customPool, NUMBER); break;
           case 4: strcat(customPool, NUMBER); break;
+          case 5: strcat(customPool, SYMBOL); break;
           default: printf("invalid charset: %s\nplease use \'-C\' to set explicit charset\n", optarg); return -1;
         }
         break;
