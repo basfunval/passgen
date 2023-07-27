@@ -49,7 +49,7 @@ int main(int argc, char **argv){
         }
         break;
       case 'C':
-        strcpy(customPool, optarg);
+        strcat(customPool, optarg);
         break;
       case 'l':
         sscanf(optarg, "%d", &len);
