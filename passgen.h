@@ -1,3 +1,6 @@
+// passgen.h
+// (c) 2023 Nate Eaton (basfunval)
+// This code is licensed under GPL 3.0 (See LICENSE for details)
 static char* LOWER = "abcdefghijklmnopqrstuvwxyz";
 static char* UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 static char* LETTER = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

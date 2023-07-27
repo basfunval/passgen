@@ -1,3 +1,6 @@
+// passgen.c
+// (c) 2023 Nate Eaton (basfunval)
+// This code is licensed under GPL 3.0 (See LICENSE for details)
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
