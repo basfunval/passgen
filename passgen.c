@@ -9,22 +9,6 @@
 
 #include "passgen.h"
 
-int chooseCustomPool(char* pool){
-  if(strcmp(pool, "lower") == 0)
-    return 0;
-  if(strcmp(pool, "upper") == 0)
-    return 1;
-  if(strcmp(pool, "letter") == 0)
-    return 2;
-  if(strcmp(pool, "alphanum") == 0)
-    return 3;
-  if(strcmp(pool, "number") == 0)
-    return 4;
-  if(strcmp(pool, "symbol") == 0)
-    return 5;
-  return -1;
-}
-
 int main(int argc, char **argv){
   //set default length
   int len = 16;
@@ -38,15 +22,14 @@ int main(int argc, char **argv){
         printf("%s", HELP_TEXT);
         return 0;
       case 'c':
-        switch(chooseCustomPool(optarg)){
-          case 0: strcat(customPool, LOWER); break;
-          case 1: strcat(customPool, UPPER); break;
-          case 2: strcat(customPool, LETTER); break;
-          case 3: strcat(customPool, LETTER); strcat(customPool, NUMBER); break;
-          case 4: strcat(customPool, NUMBER); break;
-          case 5: strcat(customPool, SYMBOL); break;
-          default: printf("invalid charset: %s\nplease use \'-C\' to set explicit charset\n", optarg); return -1;
-        }
+        if(strcmp(optarg, "lower") == 0){   strcat(customPool, LOWER); break;}
+        if(strcmp(optarg, "upper") == 0){   strcat(customPool, UPPER); break;}
+        if(strcmp(optarg, "letter") == 0){  strcat(customPool, LETTER); break;}
+        if(strcmp(optarg, "alphanum") == 0){strcat(customPool, ALPHANUM); break;}
+        if(strcmp(optarg, "number") == 0){  strcat(customPool, NUMBER); break;}
+        if(strcmp(optarg, "symbol") == 0){  strcat(customPool, SYMBOL); break;}
+        printf("invalid charset: %s\nplease use \'-C\' to set explicit charset\n", optarg);
+        return -1;
         break;
       case 'C':
         strcat(customPool, optarg);
